@@ -1,0 +1,10 @@
+import { Currency } from "../customTypes/Currency";
+
+export interface IAccount {
+  id: string | undefined;
+  name: string;
+  email: string;
+  profilePicture: string | undefined;
+  balance: number;
+  currency: Currency;
+}

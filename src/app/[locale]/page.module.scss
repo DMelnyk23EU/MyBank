@@ -1,0 +1,64 @@
+// app/styles/HomePage.module.scss
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  background-color: #ffffff;
+  font-family: 'Arial', sans-serif;
+  user-select: none;
+
+  .logo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+
+    .title {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #1e3d58;
+      margin-left: 10px;
+    }
+  }
+
+  .welcomeMessage {
+    text-align: center;
+    margin-bottom: 40px;
+
+    h2 {
+      font-size: 2rem;
+      color: #333;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #777;
+    }
+
+  }
+
+}
+
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .welcomeMessage h2 {
+    font-size: 1.8rem;
+    margin: 1em;
+  }
+
+  .welcomeMessage p {
+    font-size: 1rem;
+    margin: 1em;
+  }
+
+  .loginLink {
+    padding: 0;
+    font-size: 1rem;
+    width: 50%;
+  }
+}

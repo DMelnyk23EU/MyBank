@@ -1,0 +1,146 @@
+/* app/components/TopNav.module.scss */
+.nav {
+  background-color: #1e3d58;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  z-index: 10;
+  top: 0;
+  left: 0;
+  height: 4em;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  color: white;
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.logo {
+  display: flex;
+  flex-direction: row;
+  font-size: 1.5rem;
+
+  .logoImg {
+    filter: invert(1);
+  }
+
+  a {
+    margin-left: 7px;
+  }
+}
+
+.burgerIcon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.navLinks {
+  display: flex;
+  gap: 20px;
+}
+
+.navLinks .link {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.navLinks .link:hover {
+  color: #4cacff;
+}
+
+.contextualMenu {
+  position: fixed;
+  top: 0;
+  right: -300px;
+  /* Initially off-screen */
+  height: 100%;
+  width: 300px;
+  background-color: #1e3d58;
+  transition: transform 0.3s ease-in-out;
+  z-index: 10;
+  padding-top: 20px;
+  color: white;
+  box-shadow: -3px 0px 13px -3px rgba(0, 0, 0, 0.33);
+}
+
+.contextualMenu.openMenu {
+  transform: translateX(-300px);
+  /* Slide from the right */
+}
+
+.menuItems {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: flex-start;
+}
+
+.menuItem {
+  padding: 15px;
+  border-bottom: 1px solid white;
+  text-align: center;
+}
+
+.menuItem:last-child {
+  border-bottom: none;
+}
+
+.menuItem .link {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+.menuItem .link:hover {
+  color: #4cacff;
+}
+
+.closeButton {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  color: white;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  color: #4cacff;
+}
+
+@media (max-width: 768px) {
+  .burgerIcon {
+    display: flex;
+    filter: invert(1)
+      /* Show burger icon on mobile screens */
+  }
+
+  .navLinks {
+    display: none;
+    /* Hide links on mobile */
+  }
+
+  .contextualMenu {
+    width: 250px;
+    /* Adjust size for mobile */
+  }
+
+  .menuItem {
+    font-size: 1.2rem;
+  }
+}
