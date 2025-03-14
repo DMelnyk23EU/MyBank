@@ -1,6 +1,28 @@
 {
-  "welcome": "Welcome",
-  "profile": "Profile",
-  "logout": "Log out",
-  "login": "Log in"
+  "homePage": {
+    "welcome": "Welcome to",
+    "title": "Welcome to Your Bank Account Manager",
+    "description": "Manage your bank accounts, view balances, and perform transactions with ease."
+  },
+  "login": {
+    "title": "Log in",
+    "email": "Email",
+    "emailPlaceholder": "Enter your email",
+    "password": "Password",
+    "passwordPlaceholder": "Enter your password",
+    "submit": "Log in",
+    "forgotPassword": "Forgot password?",
+    "dontHaveAccount": "Don't have an account?",
+    "registerHere": "Register here",
+    "emailInvalid": "Please enter a valid email address"
+  },
+  "topNav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "contact": "Contact",
+    "login": "Log in",
+    "logout": "Log out",
+    "profile": "My Profile"
+  }
 }

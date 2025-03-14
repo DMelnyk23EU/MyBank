@@ -1,6 +1,28 @@
 {
-  "welcome": "Willkommen",
-  "profile": "Profil",
-  "logout": "Ausloggen",
-  "login": "Einloggen"
+  "homePage": {
+    "welcome": "Willkommen bei",
+    "title": "Willkommen bei Ihrem Bankkonto-Manager",
+    "description": "Verwalten Sie Ihre Bankkonten, sehen Sie Kontostände ein und führen Sie Transaktionen mühelos durch."
+  },
+  "login": {
+    "title": "Anmelden",
+    "email": "E-Mail",
+    "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+    "password": "Passwort",
+    "passwordPlaceholder": "Geben Sie Ihr Passwort ein",
+    "submit": "Anmelden",
+    "forgotPassword": "Passwort vergessen?",
+    "dontHaveAccount": "Haben Sie noch kein Konto?",
+    "registerHere": "Hier registrieren",
+    "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+  },
+  "topNav": {
+    "home": "Startseite",
+    "about": "Über uns",
+    "services": "Dienstleistungen",
+    "contact": "Kontakt",
+    "login": "Anmelden",
+    "logout": "Abmelden",
+    "profile": "Mein Profil"
+  }
 }

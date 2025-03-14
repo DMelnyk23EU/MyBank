@@ -1,15 +1,20 @@
-// app/components/TopNav.tsx
 'use client';
+
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './TopNav.module.scss';
 import Image from 'next/image';
+import LanguageSelector from '../LanguageSelector/LanguageSelector';
+import { useTranslations } from 'next-intl';  // Import the useTranslations hook
 
 interface TopNavProps {
   isLoggedIn: boolean;
 }
 
 const TopNav: React.FC<TopNavProps> = ({ isLoggedIn }) => {
+
+  const t = useTranslations();
+
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   // Function to toggle the burger menu
@@ -46,12 +51,13 @@ const TopNav: React.FC<TopNavProps> = ({ isLoggedIn }) => {
 
         {/* Navigation links for desktop (on the right side) */}
         <div className={styles.navLinks}>
-          <Link href="/" className={styles.link}>Home</Link>
-          <Link href="/about" className={styles.link}>About</Link>
-          <Link href="/services" className={styles.link}>Services</Link>
+          <Link href="/" className={styles.link}>{t('topNav.home')}</Link>
+          <Link href="/about" className={styles.link}>{t('topNav.about')}</Link>
+          <Link href="/services" className={styles.link}>{t('topNav.services')}</Link>
           <Link href={isLoggedIn ? "/profile" : "/login"} className={styles.link}>
-            {isLoggedIn ? 'Profile' : 'Login'}
+            {isLoggedIn ? t('topNav.profile') : t('topNav.login')}
           </Link>
+          <LanguageSelector />
         </div>
       </div>
 
@@ -62,18 +68,21 @@ const TopNav: React.FC<TopNavProps> = ({ isLoggedIn }) => {
         </button>
         <ul className={styles.menuItems}>
           <li className={styles.menuItem}>
-            <Link href="/" className={styles.link}>Home</Link>
+            <Link href="/" className={styles.link}>{t('topNav.home')}</Link>
           </li>
           <li className={styles.menuItem}>
-            <Link href="/about" className={styles.link}>About</Link>
+            <Link href="/about" className={styles.link}>{t('topNav.about')}</Link>
           </li>
           <li className={styles.menuItem}>
-            <Link href="/services" className={styles.link}>Services</Link>
+            <Link href="/services" className={styles.link}>{t('topNav.services')}</Link>
           </li>
           <li className={styles.menuItem}>
             <Link href={isLoggedIn ? "/profile" : "/login"} className={styles.link}>
-              {isLoggedIn ? 'Profile' : 'Login'}
+              {isLoggedIn ? t('topNav.profile') : t('topNav.login')}
             </Link>
+          </li>
+          <li className={styles.menuItem}>
+            <LanguageSelector />
           </li>
         </ul>
       </div>
