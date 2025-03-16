@@ -6,15 +6,23 @@
   },
   "login": {
     "title": "Log in",
+    "userName": "Name",
+    "userNamePlaceholder": "Enter your name",
     "email": "Email",
     "emailPlaceholder": "Enter your email",
     "password": "Password",
     "passwordPlaceholder": "Enter your password",
+    "passwordRepeat": "Repeat password",
+    "passwordRepeatPlaceholder": "Repeat your password",
     "submit": "Log in",
     "forgotPassword": "Forgot password?",
     "dontHaveAccount": "Don't have an account?",
     "registerHere": "Register here",
-    "emailInvalid": "Please enter a valid email address"
+    "emailInvalid": "Please enter a valid email address. Example: userName@domain.com",
+    "passwordInvalid": "Password must be at least 8 characters",
+    "logginInMessage": "Logging in...",
+    "loginError": "Invalid email or password",
+    "loginSuccess": "Logged in successfully"
   },
   "topNav": {
     "home": "Home",
@@ -24,5 +32,24 @@
     "login": "Log in",
     "logout": "Log out",
     "profile": "My Profile"
+  },
+  "validations": {
+    "required": "This field is required",
+    "email": "Please enter a valid email address",
+    "password": "Password must be at least 8 characters long",
+    "passwordRepeatError": "Passwords do not match"
+  },
+  "fields": {
+    "imgInputLabel": "Click to upload",
+    "currencySelectLabel": "Select currency"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "save": "Save",
+    "somethingWentWrong": "Something went wrong",
+    "success": "Success"
   }
 }

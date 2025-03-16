@@ -3,12 +3,13 @@ import { IAccount } from "../interfaces/IAccount";
 
 
 export const accountInitialState: IAccount = {
-  id: undefined,
-  name: "",
-  email: "",
-  profilePicture: undefined,
+  id: 'undefined',
+  name: 'Dmytro Maksymov',
+  password: '12131223',
+  email: 'dawdawd@dawda.daw',
+  profilePicture: '/addImage.svg',
   balance: 0,
-  currency: "usd"
+  currency: 'usd'
 };
 
 const accountSlice = createSlice({

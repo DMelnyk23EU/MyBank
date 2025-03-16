@@ -1,0 +1,57 @@
+$border-color: #ccc;
+$border-radius: 5px;
+$primary-color: #1e3d58;
+$error-color: red;
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 6em;
+  max-height: 9em;
+
+  .textFieldLabel {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    font-weight: bolder;
+  }
+
+  .required {
+    &::after {
+      margin-left: 3px;
+      content: "*";
+      color: red;
+      display: inline-block;
+    }
+  }
+
+  input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    outline: none;
+    transition: border-color 0.3s ease;
+
+    &:focus {
+      border-color: $primary-color;
+    }
+  }
+
+  .error {
+    color: $error-color;
+    font-size: 0.875rem;
+    margin: 5px 0 7px;
+    opacity: 0;
+    transform: translateY(-5px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .error.visible {
+    opacity: 1;
+    transform: translateY(0);
+    height: auto;
+  }
+}

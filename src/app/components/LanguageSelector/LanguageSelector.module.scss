@@ -3,72 +3,70 @@
 .languageSelector {
   position: relative;
   display: inline-block;
-}
 
-.button {
-  background-color: transparent;
-  border: none;
-  padding: 0;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.2s;
-
-  &:hover {
-    cursor: pointer;
-  }
-
-  .localeVal {
-    margin-left: 5px;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
+  .button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s;
 
     &:hover {
-      color: #4cacff;
+      cursor: pointer;
+    }
+
+    .localeVal {
+      margin-left: 5px;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      color: white;
+
+      &:hover {
+        color: #4cacff;
+      }
+    }
+
+    .icon {
+      filter: invert(1);
+
+      &:hover {
+        fill: #4cacff;
+      }
     }
   }
 
-  .icon {
-    filter: invert(1);
+  .menu {
+    position: absolute;
+    top: 30px;
+    /* Position below the button */
+    left: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    width: 150px;
+    z-index: 10;
+    transform: translate(-81%, -2px);
+    color: black;
 
-    &:hover {
-      fill: #4cacff;
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 10px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #f0f0f0;
+        }
+      }
     }
-  }
-
-
-}
-
-.menu {
-  position: absolute;
-  top: 30px;
-  /* Position below the button */
-  left: 0;
-  background-color: white;
-  border: 1px solid #ccc;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  width: 150px;
-  z-index: 10;
-  transform: translate(-81%, -2px);
-  color: black;
-}
-
-.menu ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-.menu li {
-  padding: 10px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: #f0f0f0;
   }
 }

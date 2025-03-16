@@ -1,0 +1,29 @@
+.dropdownContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  width: 100%;
+  margin-bottom: 2em;
+
+  .label {
+    font-size: 1rem;
+    margin-bottom: 5px;
+    font-weight: bolder;
+  }
+
+  .dropdown {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+    font-size: 14px;
+    cursor: pointer;
+
+    &:focus {
+      outline: none;
+      border-color: #1e3d58;
+    }
+  }
+
+}

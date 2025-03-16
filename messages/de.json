@@ -2,19 +2,27 @@
   "homePage": {
     "welcome": "Willkommen bei",
     "title": "Willkommen bei Ihrem Bankkonto-Manager",
-    "description": "Verwalten Sie Ihre Bankkonten, sehen Sie Kontostände ein und führen Sie Transaktionen mühelos durch."
+    "description": "Verwalten Sie Ihre Bankkonten, sehen Sie Kontostände ein und führen Sie Transaktionen einfach durch."
   },
   "login": {
     "title": "Anmelden",
+    "userName": "Name",
+    "userNamePlaceholder": "Geben Sie Ihren Namen ein",
     "email": "E-Mail",
-    "emailPlaceholder": "Geben Sie Ihre E-Mail-Adresse ein",
+    "emailPlaceholder": "Geben Sie Ihre E-Mail ein",
     "password": "Passwort",
     "passwordPlaceholder": "Geben Sie Ihr Passwort ein",
+    "passwordRepeat": "Passwort wiederholen",
+    "passwordRepeatPlaceholder": "Wiederholen Sie Ihr Passwort",
     "submit": "Anmelden",
     "forgotPassword": "Passwort vergessen?",
-    "dontHaveAccount": "Haben Sie noch kein Konto?",
+    "dontHaveAccount": "Haben Sie kein Konto?",
     "registerHere": "Hier registrieren",
-    "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein"
+    "emailInvalid": "Bitte geben Sie eine gültige E-Mail-Adresse ein. Beispiel: userName@domain.com",
+    "passwordInvalid": "Das Passwort muss mindestens 8 Zeichen lang sein",
+    "logginInMessage": "Anmeldung läuft...",
+    "loginError": "Ungültige E-Mail oder Passwort",
+    "loginSuccess": "Erfolgreich angemeldet"
   },
   "topNav": {
     "home": "Startseite",
@@ -24,5 +32,24 @@
     "login": "Anmelden",
     "logout": "Abmelden",
     "profile": "Mein Profil"
+  },
+  "validations": {
+    "required": "Dieses Feld ist erforderlich",
+    "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
+    "password": "Das Passwort muss mindestens 8 Zeichen lang sein",
+    "passwordRepeatError": "Passwörter stimmen nicht überein"
+  },
+  "fields": {
+    "imgInputLabel": "Zum Hochladen klicken",
+    "currencySelectLabel": "Währung auswählen"
+  },
+  "common": {
+    "ok": "OK",
+    "cancel": "Abbrechen",
+    "delete": "Löschen",
+    "edit": "Bearbeiten",
+    "save": "Speichern",
+    "somethingWentWrong": "Etwas ist schiefgelaufen",
+    "success": "Erfolgreich"
   }
 }

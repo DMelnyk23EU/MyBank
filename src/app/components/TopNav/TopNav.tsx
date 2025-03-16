@@ -6,21 +6,43 @@ import styles from './TopNav.module.scss';
 import Image from 'next/image';
 import LanguageSelector from '../LanguageSelector/LanguageSelector';
 import { useTranslations } from 'next-intl';  // Import the useTranslations hook
+import { mockBackend } from '@/mockBackaend/mockBackend';
+import { useSelector } from "react-redux";
+import { GlobalState } from '@/store/GlobalStore';
 
 interface TopNavProps {
   isLoggedIn: boolean;
 }
 
-const TopNav: React.FC<TopNavProps> = ({ isLoggedIn }) => {
+
+
+const TopNav: React.FC<TopNavProps> = () => {
 
   const t = useTranslations();
 
+  const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const account = useSelector((state: GlobalState) => state.account);
 
-  // Function to toggle the burger menu
+  useEffect(() => {
+    console.log('in');
+
+    if (localStorage.getItem('_myBankBackend_') === null) {
+      localStorage.setItem('_myBankBackend_', JSON.stringify(mockBackend));
+    }
+
+  }, []);
+
+  useEffect(() => {
+    (async () => {
+      setIsLoggedIn(Boolean(account?.id?.length));
+    })();
+  }, [account]);
+
+  // Function to toggle the burger menu in mobile view
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
-  // Close the menu when clicking outside of it
+  // Close the burger menu when clicking outside of it
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       const menu = document.querySelector(`.${styles.contextualMenu}`);

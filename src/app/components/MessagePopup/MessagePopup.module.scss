@@ -1,0 +1,63 @@
+/* MessagePopup.module.scss */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+
+  .popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    row-gap: 1em;
+    width: 80%;
+    max-width: 400px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+
+    .icon {
+      font-size: 30px;
+    }
+
+    .content {
+      text-align: center;
+
+      .title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 10px 0;
+      }
+
+      .description {
+        font-size: 1rem;
+        margin-bottom: 20px;
+      }
+    }
+
+    .buttonContainer {
+      display: flex;
+      justify-content: center;
+      width: 60%;
+      height: 3em;
+    }
+  }
+}
+
+.error .title {
+  color: #dc3545;
+}
+
+.success .title {
+  color: #00b100;
+}
