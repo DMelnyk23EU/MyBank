@@ -14,7 +14,6 @@ import { IResponce } from '@/interfaces/IResponce';
 import { validateEmail, validatePassword } from '@/helpers/stringHelper';
 import useDebouncedValidation from '@/hooks/debounceValidation';
 import { redirect } from 'next/navigation';
-import { IAccount } from '@/interfaces/IAccount';
 
 export default function Login() {
   const t = useTranslations();
@@ -61,15 +60,23 @@ export default function Login() {
       setIsLoading(true);
       const res = await fetch(`http://localhost:3000/api/login`, { method: 'POST', body: JSON.stringify({ email, password }) });
 
-      const user: IAccount = await res?.json()
+      const data = await res?.json()
 
-      if (user) {
-        dispatch(setAccount(user));
+      if (!data?.message && data?.id) {
+        dispatch(setAccount(data));
         setLoginRes({
           type: 'success',
           title: t('common.success'),
           description: t('login.loginSuccess'),
         });
+      }
+      else {
+        setLoginRes({
+          type: 'error',
+          title: t('common.error'),
+          description: t('login.loginError'),
+        });
+        setIsLoading(false);
       }
 
     }

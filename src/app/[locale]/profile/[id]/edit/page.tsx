@@ -193,7 +193,7 @@ export default function EditProfile() {
         </form>
         {
           isLoading &&
-          <Spinner isGlobalSpinner label={editRes?.type === 'success' ? editRes?.description : t('login.logginInMessage')} size={35} />
+          <Spinner isGlobalSpinner label={editRes?.type === 'success' ? editRes?.description : t('transactions.loading')} size={35} />
         }
         {
           editRes?.type === 'error' &&

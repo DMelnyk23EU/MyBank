@@ -80,6 +80,7 @@
     "edit": "Edit",
     "save": "Save",
     "somethingWentWrong": "Something went wrong",
-    "success": "Success"
+    "success": "Success",
+    "error": "Error"
   }
 }

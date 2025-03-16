@@ -14,16 +14,16 @@ const LanguageSelector: React.FC = () => {
   const menuRef = useRef<HTMLDivElement>(null);  // Ref for the menu
   const buttonRef = useRef<HTMLButtonElement>(null);  // Ref for the button
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        menuRef.current && !menuRef.current.contains(event.target as Node) &&
-        buttonRef.current && !buttonRef.current.contains(event.target as Node)
-      ) {
-        setIsMenuOpen(false); // Close the menu if clicked outside
-      }
-    };
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      menuRef.current && !menuRef.current.contains(event.target as Node) &&
+      buttonRef.current && !buttonRef.current.contains(event.target as Node)
+    ) {
+      setIsMenuOpen(false); // Close the menu if clicked outside
+    }
+  };
 
+  useEffect(() => {
     // Attach the event listener
     document.addEventListener('mousedown', handleClickOutside);
 

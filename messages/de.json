@@ -79,6 +79,7 @@
     "edit": "Bearbeiten",
     "save": "Speichern",
     "somethingWentWrong": "Etwas ist schiefgelaufen",
-    "success": "Erfolgreich"
+    "success": "Erfolgreich",
+    "error": "Fehler"
   }
 }

@@ -10,11 +10,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { GlobalState } from '@/store/GlobalStore';
 import { logout } from '@/store/GlobalStore';
 
-interface TopNavProps {
-  isLoggedIn: boolean;
-}
-
-const TopNav: React.FC<TopNavProps> = () => {
+const TopNav: React.FC = () => {
 
   const t = useTranslations();
 
@@ -55,6 +51,9 @@ const TopNav: React.FC<TopNavProps> = () => {
     dispatch(logout());
     setIsMenuOpen(false)
   }
+
+  console.log('isLoggedIn', isLoggedIn);
+
 
   return (
     <nav className={styles.nav}>
