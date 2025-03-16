@@ -3,8 +3,8 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 ## Test task submittion(MyBank App)
 
 ```
- It's to perform a login, create/updated/delete account, make a transfer.
- Backend is mock using a mockData.Json file.
+ It's possible to perform a login, create/updated/delete account, make a transfer.
+ Backend is mocked using a mockData.json file.
 
  Suggested to use this account(it has more data connected to it) for login:
  "email": "test.acc@domain.com"
