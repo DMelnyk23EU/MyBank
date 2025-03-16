@@ -4,6 +4,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import styles from './ImageInput.module.scss';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import Spinner from '../Spinner/Spinner';
+import { compressImageHelper } from '@/helpers/compressImageHelper';
 
 interface ImageUploaderProps {
   value?: string; // Base64 string of the image
@@ -12,40 +14,43 @@ interface ImageUploaderProps {
   className?: string;
 }
 
-const ImageInput: React.FC<ImageUploaderProps> = ({ value, size, className, onImageUpload }) => {
+const imageSrcPrefix = 'data:image/png;base64,';
 
+const ImageInput: React.FC<ImageUploaderProps> = ({ value, size, className, onImageUpload }) => {
   const t = useTranslations();
   const [preview, setPreview] = useState<string | undefined>(value);
+  const [uploadingImage, setUploadingImage] = useState<boolean>(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     setPreview(value);
-    console.log('value: ', value);
-
   }, [value]);
 
   // Handle image selection
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        const base64String = reader.result as string;
-        setPreview(base64String);
-        onImageUpload?.(base64String); // Pass the Base64 string to the parent
-      };
-      reader.readAsDataURL(file); // Convert file to Base64
+      setUploadingImage(true);
+      compressImageHelper(file, (compressedBase64) => {
+        compressedBase64 = compressedBase64.split(",")[1];
+        setPreview(compressedBase64);
+        onImageUpload?.(compressedBase64); // Pass the Base64 string to the parent
+        setUploadingImage(false);
+      });
     }
   };
 
   // Handle removing the image
-  const handleRemoveImage = () => {
+  const handleRemoveImage = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Prevent triggering file selection
     setPreview(undefined);
     onImageUpload?.(undefined); // Notify parent that the image is removed
   };
 
   const handleImageClick = () => {
-    fileInputRef.current?.click();
+    if (onImageUpload) {
+      fileInputRef.current?.click();
+    }
   };
 
   return (
@@ -58,12 +63,40 @@ const ImageInput: React.FC<ImageUploaderProps> = ({ value, size, className, onIm
         onChange={handleImageChange}
         multiple={false}
       />
+
       {/* Clickable Image Preview or Placeholder */}
-      <div className={`${styles.imageWrapper} ${preview ? styles.solidBorder : ''}`} onClick={handleImageClick}>
-        {preview ? (
+      <div className={`${styles.imageWrapper} ${onImageUpload ? '' : styles.notClickable} ${preview ? styles.solidBorder : ''}`} onClick={handleImageClick}>
+        {uploadingImage && (
+          <div className={styles.spinnerWrapper}>
+            <Spinner size={50} />
+          </div>
+        )}
+
+        {!uploadingImage && preview ? (
           <>
-            <Image src={preview} alt="Preview" className={styles.preview} priority width={size ?? 150} height={size ?? 150} />
-            <Image src={'/update.svg'} alt="Edit" className={styles.editLogo} priority width={size ?? 150} height={size ?? 150} />
+            {
+              onImageUpload &&
+              <button className={styles.removeIcon} onClick={handleRemoveImage}>
+                ✖
+              </button>
+
+            }
+            <Image
+              src={imageSrcPrefix + preview}
+              alt="Preview"
+              className={styles.preview}
+              priority
+              width={size ?? 150}
+              height={size ?? 150}
+            />
+            <Image
+              src={'/update.svg'}
+              alt="Edit"
+              className={styles.editLogo}
+              priority
+              width={size ?? 150}
+              height={size ?? 150}
+            />
           </>
         ) : (
           <div className={styles.placeholder}>
@@ -72,13 +105,6 @@ const ImageInput: React.FC<ImageUploaderProps> = ({ value, size, className, onIm
           </div>
         )}
       </div>
-
-      {/* Remove Button */}
-      {preview && onImageUpload && (
-        <button onClick={handleRemoveImage} className={styles.removeButton}>
-          Remove
-        </button>
-      )}
     </div>
   );
 };

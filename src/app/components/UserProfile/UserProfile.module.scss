@@ -1,0 +1,59 @@
+$primary-color: #1e3d58;
+
+
+.profileContainer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+
+  .img {
+    width: 120px;
+    height: 120px;
+    border: 2px solid $primary-color;
+    border-radius: 25px;
+    object-fit: cover;
+  }
+
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    h2,
+    p {
+      transition: color 0.3s ease;
+      min-width: 200px; // Prevent shifting
+    }
+
+    h2 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    p {
+      font-size: 1.2rem;
+      color: #666;
+      margin: 2px 0 0;
+    }
+  }
+
+  .valueContainer {
+    position: relative;
+    display: inline-block;
+    padding-right: 25px;
+    /* Ensure space for the edit icon */
+  }
+
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+
+    .valueContainer {
+      padding-right: 0;
+      /* Ensure space for the edit icon */
+    }
+  }
+}

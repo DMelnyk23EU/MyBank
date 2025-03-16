@@ -1,13 +1,13 @@
 import { configureStore, PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { IAccount } from "../interfaces/IAccount";
-
+import { ITransaction } from "@/interfaces/ITransaction";
 
 export const accountInitialState: IAccount = {
-  id: 'undefined',
-  name: 'Dmytro Maksymov',
-  password: '12131223',
-  email: 'dawdawd@dawda.daw',
-  profilePicture: '/addImage.svg',
+  id: undefined,
+  name: '',
+  password: '',
+  email: '',
+  profilePicture: undefined,
   balance: 0,
   currency: 'usd'
 };
@@ -28,12 +28,25 @@ const accountSlice = createSlice({
   }
 });
 
+const transactionsSlice = createSlice({
+  name: 'transactions',
+  initialState: [] as ITransaction[],  // Specify the type of the state
+  reducers: {
+    setTransactions: (state, action: PayloadAction<ITransaction[]>) => {
+      return action.payload; // Replace the state with new account data
+    },
+  },
+});
+
+export const { setTransactions } = transactionsSlice.actions;
+
 export const { setAccount, updateBalance, logout } = accountSlice.actions;
 
 
 export const store = configureStore({
   reducer: {
-    account: accountSlice.reducer
+    account: accountSlice.reducer,
+    transactions: transactionsSlice.reducer
   }
 });
 

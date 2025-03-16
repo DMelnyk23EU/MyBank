@@ -1,11 +1,11 @@
 {
   "homePage": {
     "welcome": "Welcome to",
-    "title": "Welcome to Your Bank Account Manager",
-    "description": "Manage your bank accounts, view balances, and perform transactions with ease."
+    "title": "Welcome to your Bank Account Manager",
+    "description": "Manage your bank accounts, view account balances and perform transactions easily."
   },
   "login": {
-    "title": "Log in",
+    "title": "Login",
     "userName": "Name",
     "userNamePlaceholder": "Enter your name",
     "email": "Email",
@@ -14,24 +14,29 @@
     "passwordPlaceholder": "Enter your password",
     "passwordRepeat": "Repeat password",
     "passwordRepeatPlaceholder": "Repeat your password",
-    "submit": "Log in",
+    "submit": "Login",
     "forgotPassword": "Forgot password?",
     "dontHaveAccount": "Don't have an account?",
     "registerHere": "Register here",
     "emailInvalid": "Please enter a valid email address. Example: userName@domain.com",
-    "passwordInvalid": "Password must be at least 8 characters",
+    "passwordInvalid": "Password must be at least 8 characters long",
     "logginInMessage": "Logging in...",
     "loginError": "Invalid email or password",
-    "loginSuccess": "Logged in successfully"
+    "loginSuccess": "Successfully logged in",
+    "update": "Update",
+    "delete": "Delete"
+  },
+  "register": {
+    "registerSuccess": "Successfully registered",
+    "registerError": "Registration error"
   },
   "topNav": {
     "home": "Home",
-    "about": "About",
-    "services": "Services",
-    "contact": "Contact",
-    "login": "Log in",
-    "logout": "Log out",
-    "profile": "My Profile"
+    "transactions": "Transactions",
+    "login": "Login",
+    "logout": "Logout",
+    "profile": "My Profile",
+    "profileEdit": "Edit Profile"
   },
   "validations": {
     "required": "This field is required",
@@ -42,6 +47,31 @@
   "fields": {
     "imgInputLabel": "Click to upload",
     "currencySelectLabel": "Select currency"
+  },
+  "transactions": {
+    "title": "Transactions",
+    "noTransactions": "No transactions found",
+    "transactionType": "Transaction type",
+    "date": "Date",
+    "transactionFailed": "Transaction failed",
+    "transactionSuccess": "Transaction successful",
+    "newTransaction": "New transaction",
+    "recipientName": "Recipient name",
+    "recipientNamePlaceholder": "Enter recipient name",
+    "amount": "Amount",
+    "amountPlaceholder": "Enter amount",
+    "description": "Description",
+    "descriptionPlaceholder": "Enter a description",
+    "convert": "Transaction will be converted to recipient currency:",
+    "notEnoughBalance": "Not enough balance to perform this transaction",
+    "searching": "Searching for recepient...",
+    "recipientNotFound": "Recipient not found",
+    "received": "Received",
+    "sent": "Sent",
+    "send": "Send",
+    "balance": "Balance",
+    "loading": "Loading..."
+
   },
   "common": {
     "ok": "OK",

@@ -6,15 +6,13 @@ import styles from './TopNav.module.scss';
 import Image from 'next/image';
 import LanguageSelector from '../LanguageSelector/LanguageSelector';
 import { useTranslations } from 'next-intl';  // Import the useTranslations hook
-import { mockBackend } from '@/mockBackaend/mockBackend';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { GlobalState } from '@/store/GlobalStore';
+import { logout } from '@/store/GlobalStore';
 
 interface TopNavProps {
   isLoggedIn: boolean;
 }
-
-
 
 const TopNav: React.FC<TopNavProps> = () => {
 
@@ -23,15 +21,7 @@ const TopNav: React.FC<TopNavProps> = () => {
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
   const account = useSelector((state: GlobalState) => state.account);
-
-  useEffect(() => {
-    console.log('in');
-
-    if (localStorage.getItem('_myBankBackend_') === null) {
-      localStorage.setItem('_myBankBackend_', JSON.stringify(mockBackend));
-    }
-
-  }, []);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     (async () => {
@@ -61,6 +51,11 @@ const TopNav: React.FC<TopNavProps> = () => {
     return () => document.removeEventListener('click', handleClickOutside);
   }, []);
 
+  const onLogoutClick = () => {
+    dispatch(logout());
+    setIsMenuOpen(false)
+  }
+
   return (
     <nav className={styles.nav}>
       <div className={styles.navContainer}>
@@ -74,11 +69,31 @@ const TopNav: React.FC<TopNavProps> = () => {
         {/* Navigation links for desktop (on the right side) */}
         <div className={styles.navLinks}>
           <Link href="/" className={styles.link}>{t('topNav.home')}</Link>
-          <Link href="/about" className={styles.link}>{t('topNav.about')}</Link>
-          <Link href="/services" className={styles.link}>{t('topNav.services')}</Link>
-          <Link href={isLoggedIn ? "/profile" : "/login"} className={styles.link}>
-            {isLoggedIn ? t('topNav.profile') : t('topNav.login')}
-          </Link>
+          {
+            isLoggedIn && (
+              <Link href={`/transactions`} className={styles.link}>{t('topNav.transactions')}</Link>
+            )
+          }
+          {
+            isLoggedIn ?
+              <>
+                <Link href={`/profile/${account?.id}`} className={styles.link}>
+                  {t('topNav.profile')}
+                </Link>
+                <Link href={`/profile/${account?.id}/edit`} className={styles.link}>
+                  {t('topNav.profileEdit')}
+                </Link>
+              </>
+              :
+              <Link href={'/login'} className={styles.link}>
+                {t('topNav.login')}
+              </Link>
+          }
+          {
+            isLoggedIn && (
+              <Link href="/" onClick={onLogoutClick} className={styles.link}>{t('topNav.logout')}</Link>
+            )
+          }
           <LanguageSelector />
         </div>
       </div>
@@ -90,19 +105,43 @@ const TopNav: React.FC<TopNavProps> = () => {
         </button>
         <ul className={styles.menuItems}>
           <li className={styles.menuItem}>
-            <Link href="/" className={styles.link}>{t('topNav.home')}</Link>
+            <Link onClick={() => setIsMenuOpen(false)} href="/" className={styles.link}>{t('topNav.home')}</Link>
           </li>
-          <li className={styles.menuItem}>
-            <Link href="/about" className={styles.link}>{t('topNav.about')}</Link>
-          </li>
-          <li className={styles.menuItem}>
-            <Link href="/services" className={styles.link}>{t('topNav.services')}</Link>
-          </li>
-          <li className={styles.menuItem}>
-            <Link href={isLoggedIn ? "/profile" : "/login"} className={styles.link}>
-              {isLoggedIn ? t('topNav.profile') : t('topNav.login')}
-            </Link>
-          </li>
+          {
+            isLoggedIn &&
+            <li className={styles.menuItem}>
+              <Link onClick={() => setIsMenuOpen(false)} href={`/transactions`} className={styles.link}>{t('topNav.transactions')}</Link>
+            </li>
+          }
+
+          {
+            isLoggedIn ?
+              <>
+                <li className={styles.menuItem}>
+                  <Link href={`/profile/${account?.id}`} className={styles.link}>
+                    {t('topNav.profile')}
+                  </Link>
+                </li>
+                <li className={styles.menuItem}>
+                  <Link href={`/profile/${account?.id}/edit`} className={styles.link}>
+                    {t('topNav.profileEdit')}
+                  </Link>
+                </li>
+              </>
+              :
+              <li className={styles.menuItem}>
+                <Link href={'/login'} className={styles.link}>
+                  {t('topNav.login')}
+                </Link>
+              </li>
+          }
+          {
+            isLoggedIn &&
+            <li className={styles.menuItem}>
+              <Link href="/" onClick={onLogoutClick} className={styles.link}>{t('topNav.logout')}</Link>
+            </li>
+          }
+
           <li className={styles.menuItem}>
             <LanguageSelector />
           </li>

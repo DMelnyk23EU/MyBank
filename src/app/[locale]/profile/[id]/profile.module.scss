@@ -1,0 +1,49 @@
+.mainContainer {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 2em;
+  height: 90%;
+  overflow-y: auto;
+
+  .profileContainer {
+    display: flex;
+    width: 100%;
+    margin: 2em 0;
+    justify-content: center;
+
+    .editButtonContainer {
+      display: flex;
+      justify-content: center;
+      gap: 1em;
+
+      .editButton {
+        background-color: #1e3d58;
+        color: white;
+        border: none;
+        padding: 0.5em 1em;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+
+        &:hover {
+          background-color: #4cacff;
+        }
+      }
+    }
+  }
+
+  .balanceContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+    .title {
+      font-size: 2rem
+    }
+
+    .balance {
+      font-size: 1.5rem;
+      color: #1e3d58;
+    }
+  }
+}

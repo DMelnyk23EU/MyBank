@@ -1,0 +1,86 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center; /* Center content horizontally */
+  width: 60%;
+  margin: 0 auto;
+  border-radius: 25px;
+  padding: 1em;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+
+  /* Title styling */
+  .title {
+    font-size: 2rem;
+    text-align: center; /* Center the title */
+  }
+
+  /* Balance container */
+  .balanceContainer {
+    display: flex;
+    align-items: center; /* Center the content vertically */
+  }
+
+  .balance {
+    font-size: 4.5rem;
+    color: #1e3d58;
+    display: flex;
+    align-items: center; /* Align amount and currency image in the same line */
+  }
+
+  .currencyImage {
+    width: 24px; /* Adjust based on your desired image size */
+    height: 24px; /* Adjust based on your desired image size */
+    margin-left: 0.5em; /* Space between amount and currency image */
+  }
+
+  /* Media queries for responsiveness */
+  @media (max-width: 1200px) {
+    width: 75%;
+    padding: 0.8em;
+
+    .title {
+      font-size: 1.75rem;
+    }
+
+    .balance {
+      font-size: 3.5rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    width: 90%;
+    padding: 0.6em;
+
+    .title {
+      font-size: 1.5rem;
+    }
+
+    .balance {
+      font-size: 2.5rem;
+    }
+
+    .balanceContainer {
+      flex-direction: column; /* Stack balance amount and currency image vertically */
+      align-items: flex-start;
+    }
+  }
+
+  @media (max-width: 480px) {
+    width: 95%;
+    padding: 0.5em;
+
+    .title {
+      font-size: 1.25rem;
+    }
+
+    .balance {
+      font-size: 2rem;
+    }
+
+    .currencyImage {
+      width: 20px; /* Adjust currency image size for smaller screens */
+      height: 20px;
+    }
+  }
+}

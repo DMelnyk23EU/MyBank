@@ -11,10 +11,28 @@ export function convertCurrency(
   fromCurrency: Currency,
   toCurrency: Currency
 ): number {
+
+  if (!exchangeRates[fromCurrency] || !exchangeRates[fromCurrency][toCurrency]) {
+    return NaN; // Conversion not supported
+  }
+
   if (fromCurrency === toCurrency) {
     return amount; // No conversion needed
   }
 
   const rate = exchangeRates[fromCurrency][toCurrency];
   return parseFloat((amount * rate).toFixed(2)); // Rounded to 2 decimal places
+}
+
+export function getCurrencySymbol(currency: Currency): string {
+  switch (currency) {
+    case "usd":
+      return "$";
+    case "eur":
+      return "€";
+    case "gbp":
+      return "£";
+    default:
+      return "";
+  }
 }

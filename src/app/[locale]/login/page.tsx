@@ -1,23 +1,22 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './login.module.scss';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import TextField from '@/app/components/TextField/TextField';
 import Button from '@/app/components/Button/Button';
-import { login } from '@/mockBackaend/mockBackend';
-import { useDispatch } from "react-redux";
-import { setAccount } from '@/store/GlobalStore';
+import { useDispatch, useSelector } from "react-redux";
+import { GlobalState, setAccount } from '@/store/GlobalStore';
 import Spinner from '@/app/components/Spinner/Spinner';
 import MessagePopup from '@/app/components/MessagePopup/MessagePopup';
 import { IResponce } from '@/interfaces/IResponce';
 import { validateEmail, validatePassword } from '@/helpers/stringHelper';
 import useDebouncedValidation from '@/hooks/debounceValidation';
 import { redirect } from 'next/navigation';
+import { IAccount } from '@/interfaces/IAccount';
 
 export default function Login() {
-
   const t = useTranslations();
   const dispatch = useDispatch();
   const [email, setEmail] = useState<string>('');
@@ -26,6 +25,7 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const emailError = useDebouncedValidation(validateEmail, email, t('login.emailInvalid'), 1000);
   const passwordError = useDebouncedValidation(validatePassword, password, t('login.passwordInvalid'), 1000);
+  const account = useSelector((state: GlobalState) => state.account);
 
   const isSubmitDisabled = (): boolean => {
     if (emailError || passwordError || !validateEmail(email) || !validatePassword(password)) {
@@ -34,6 +34,24 @@ export default function Login() {
     return false
   }
 
+  useEffect(() => {
+    if (loginRes?.type === 'success') {
+      setTimeout(() => {
+        redirect(`/profile/${account.id}`);
+      }, 1000);
+    }
+  }, [loginRes, account]);
+
+  useEffect(() => {
+
+    return () => {
+      setLoginRes(undefined);
+      setEmail('');
+      setPassword('');
+      setIsLoading(false);
+    }
+  }, [])
+
   // Handling the form submit
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,16 +59,19 @@ export default function Login() {
     try {
       setLoginRes(undefined);
       setIsLoading(true);
-      const user = await login(localStorage.getItem('_myBankBackend_'), email, password);
+      const res = await fetch(`http://localhost:3000/api/login`, { method: 'POST', body: JSON.stringify({ email, password }) });
 
-      dispatch(setAccount(user));
+      const user: IAccount = await res?.json()
 
-      setLoginRes({
-        type: 'success',
-        title: t('common.success'),
-        description: t('login.loginSuccess'),
-      });
-      setIsLoading(false);
+      if (user) {
+        dispatch(setAccount(user));
+        setLoginRes({
+          type: 'success',
+          title: t('common.success'),
+          description: t('login.loginSuccess'),
+        });
+      }
+
     }
     catch (error) {
       console.error(error);
@@ -64,9 +85,6 @@ export default function Login() {
   };
 
   const onMessagePopupClose = () => {
-    if (loginRes?.type === 'success') {
-      redirect('/profile');
-    }
     setLoginRes(undefined);
   }
 
@@ -111,10 +129,10 @@ export default function Login() {
         </form>
         {
           isLoading &&
-          <Spinner isGlobalSpinner label={t('login.logginInMessage')} size={35} />
+          <Spinner isGlobalSpinner label={loginRes?.type === 'success' ? loginRes?.description : t('login.logginInMessage')} size={35} />
         }
         {
-          loginRes &&
+          loginRes?.type === 'error' &&
           <MessagePopup
             type={loginRes.type}
             title={loginRes.title}

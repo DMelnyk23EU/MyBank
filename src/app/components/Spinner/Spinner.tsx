@@ -5,14 +5,15 @@ import Image from 'next/image';
 
 export interface ISpinnerProps {
   label?: string;
+  className?: string;
   size: number;
   isGlobalSpinner?: boolean;
 }
 
-const Spinner: React.FC<ISpinnerProps> = ({ size, label, isGlobalSpinner }) => {
+const Spinner: React.FC<ISpinnerProps> = ({ size, label, isGlobalSpinner, className }) => {
 
   const getSpinner = () => {
-    const spinenrCMP = (<div className={styles['spinner-container']}>
+    const spinenrCMP = (<div className={`${styles['spinner-container']} ${className ?? ''}`}>
       <div className={styles.spinner}>
         <Image src="/spinner.svg" alt="Spinner" width={size} height={size} />
       </div>

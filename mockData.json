@@ -1,0 +1,207 @@
+{
+  "users": [
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440001",
+      "name": "John Doe",
+      "email": "john.doe@example.com",
+      "password": "password123",
+      "profilePicture": "",
+      "balance": 1500.75,
+      "currency": "usd"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440002",
+      "name": "Jane Smith",
+      "email": "jane.smith@example.com",
+      "password": "securepassword!789",
+      "profilePicture": "",
+      "balance": 2450.5,
+      "currency": "eur"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440003",
+      "name": "Charlie Brown",
+      "email": "charlie.brown@example.com",
+      "password": "charliePass321",
+      "profilePicture": "",
+      "balance": 300,
+      "currency": "gbp"
+    },
+    {
+      "id": "550e8400-e29b-41d4-a716-446655440004",
+      "name": "Lisa Green",
+      "email": "lisa.green@example.com",
+      "password": "lisaSecurePass!456",
+      "profilePicture": "",
+      "balance": 5200,
+      "currency": "gbp"
+    }
+  ],
+  "transactions": [
+    {
+      "id": "c9f0f895fb98ab9159f1b8e2e5f9e5e5",
+      "date": "2025-03-16T09:30:00Z",
+      "description": "Payment for groceries",
+      "type": "send",
+      "amount": 100.5,
+      "recipientId": "550e8400-e29b-41d4-a716-446655440002",
+      "recipientName": "Jane Smith",
+      "senderId": "550e8400-e29b-41d4-a716-446655440001",
+      "senderName": "John Doe"
+    },
+    {
+      "id": "d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2d2",
+      "date": "2025-03-16T10:00:00Z",
+      "description": "Salary deposit",
+      "type": "receive",
+      "amount": 1500,
+      "recipientId": "550e8400-e29b-41d4-a716-446655440001",
+      "recipientName": "John Doe",
+      "senderId": "550e8400-e29b-41d4-a716-446655440004",
+      "senderName": "Company XYZ"
+    },
+    {
+      "id": "b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3b3",
+      "date": "2025-03-16T11:15:00Z",
+      "description": "Payment for software subscription",
+      "type": "send",
+      "amount": 45.99,
+      "recipientId": "550e8400-e29b-41d4-a716-446655440003",
+      "recipientName": "Charlie Brown",
+      "senderId": "550e8400-e29b-41d4-a716-446655440002",
+      "senderName": "Jane Smith"
+    },
+    {
+      "id": "a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4a4",
+      "date": "2025-03-16T12:45:00Z",
+      "description": "Transfer to savings account",
+      "type": "receive",
+      "amount": 200,
+      "recipientId": "550e8400-e29b-41d4-a716-446655440004",
+      "recipientName": "Lisa Green",
+      "senderId": "550e8400-e29b-41d4-a716-446655440003",
+      "senderName": "Charlie Brown"
+    },
+    {
+      "id": "e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5e5",
+      "date": "2025-03-16T14:00:00Z",
+      "description": "Payment for rent",
+      "type": "send",
+      "amount": 850,
+      "recipientId": "550e8400-e29b-41d4-a716-446655440004",
+      "recipientName": "Lisa Green",
+      "senderId": "550e8400-e29b-41d4-a716-446655440002",
+      "senderName": "John Doe"
+    },
+    {
+      "id": "f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6f6",
+      "date": "2025-03-16T15:30:00Z",
+      "description": "Purchase of new phone",
+      "type": "send",
+      "amount": 599.99,
+      "recipientId": "550e8400-e29b-41d4-a716-446655440003",
+      "recipientName": "Charlie Brown",
+      "senderId": "550e8400-e29b-41d4-a716-446655440004",
+      "senderName": "Lisa Green"
+    },
+    {
+      "id": "g7g7g7g7g7g7g7g7g7g7g7g7g7g7g7g7",
+      "date": "2025-03-16T16:00:00Z",
+      "description": "Dinner with friends",
+      "type": "receive",
+      "amount": 120,
+      "recipientId": "550e8400-e29b-41d4-a716-446655440001",
+      "recipientName": "John Doe",
+      "senderId": "550e8400-e29b-41d4-a716-446655440002",
+      "senderName": "Jane Smith"
+    },
+    {
+      "id": "h8h8h8h8h8h8h8h8h8h8h8h8h8h8h8",
+      "date": "2025-03-16T17:00:00Z",
+      "description": "Payment for utilities",
+      "type": "send",
+      "amount": 75,
+      "recipientId": "550e8400-e29b-41d4-a716-446655440004",
+      "recipientName": "Lisa Green",
+      "senderId": "550e8400-e29b-41d4-a716-446655440003",
+      "senderName": "Charlie Brown"
+    },
+    {
+      "id": "i9i9i9i9i9i9i9i9i9i9i9i9i9i9i9",
+      "date": "2025-03-16T18:30:00Z",
+      "description": "Gift for birthday",
+      "type": "receive",
+      "amount": 50,
+      "recipientId": "550e8400-e29b-41d4-a716-446655440002",
+      "recipientName": "Jane Smith",
+      "senderId": "550e8400-e29b-41d4-a716-446655440003",
+      "senderName": "Charlie Brown"
+    },
+    {
+      "id": "j0j0j0j0j0j0j0j0j0j0j0j0j0j0j0",
+      "date": "2025-03-16T20:00:00Z",
+      "description": "Payment for concert tickets",
+      "type": "send",
+      "amount": 150,
+      "recipientId": "550e8400-e29b-41d4-a716-446655440001",
+      "recipientName": "John Doe",
+      "senderId": "550e8400-e29b-41d4-a716-446655440004",
+      "senderName": "Lisa Green"
+    },
+    {
+      "id": "ccc4860b-edae-41cd-b47b-e5932a90b1a1",
+      "date": "2025-03-16T17:20:42.142Z",
+      "description": "Test",
+      "type": "send",
+      "amount": 3,
+      "recipientId": "550e8400-e29b-41d4-a716-446655440001",
+      "recipientName": "John Doe",
+      "senderId": "c81d2553-11b5-48ea-8b34-02c0ac5925c9",
+      "senderName": "Dmytro Melnyk"
+    },
+    {
+      "id": "b277db04-aa82-4231-a474-b8a832b96d44",
+      "date": "2025-03-16T18:44:17.073Z",
+      "description": "etsf",
+      "type": "send",
+      "amount": 6,
+      "recipientId": "550e8400-e29b-41d4-a716-446655440001",
+      "recipientName": "John Doe",
+      "senderId": "c81d2553-11b5-48ea-8b34-02c0ac5925c9",
+      "senderName": "Dmytro Melnyk11111d"
+    },
+    {
+      "id": "c3b6d04e-d84c-45df-9e8c-b63c30ff00f8",
+      "date": "2025-03-16T18:44:37.945Z",
+      "description": "test",
+      "type": "send",
+      "amount": 4,
+      "recipientId": "550e8400-e29b-41d4-a716-446655440001",
+      "recipientName": "John Doe",
+      "senderId": "c81d2553-11b5-48ea-8b34-02c0ac5925c9",
+      "senderName": "Dmytro Melnyk11111d"
+    },
+    {
+      "id": "bf62385f-faf5-45aa-916c-dff7156374e7",
+      "date": "2025-03-16T18:47:22.830Z",
+      "description": "Test",
+      "type": "send",
+      "amount": 5,
+      "recipientId": "550e8400-e29b-41d4-a716-446655440001",
+      "recipientName": "John Doe",
+      "senderId": "c81d2553-11b5-48ea-8b34-02c0ac5925c9",
+      "senderName": "Dmytro Melnyk11111dd"
+    },
+    {
+      "id": "66a01073-b10e-4d84-aefb-0b148dda8e04",
+      "date": "2025-03-16T18:54:25.872Z",
+      "description": "Test",
+      "type": "send",
+      "amount": 11,
+      "recipientId": "550e8400-e29b-41d4-a716-446655440001",
+      "recipientName": "John Doe",
+      "senderId": "c81d2553-11b5-48ea-8b34-02c0ac5925c9",
+      "senderName": "Dmytro Melnyk1"
+    }
+  ]
+}

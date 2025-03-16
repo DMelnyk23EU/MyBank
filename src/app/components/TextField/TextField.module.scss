@@ -25,6 +25,10 @@ $error-color: red;
     }
   }
 
+  .inputWrapper {
+    position: relative; /* For positioning the spinner relative to this wrapper */
+  }
+
   input {
     padding: 10px;
     font-size: 1rem;
@@ -32,6 +36,7 @@ $error-color: red;
     border-radius: $border-radius;
     outline: none;
     transition: border-color 0.3s ease;
+    width: 100%; /* Make input take full width of the container */
 
     &:focus {
       border-color: $primary-color;
@@ -52,6 +57,23 @@ $error-color: red;
   .error.visible {
     opacity: 1;
     transform: translateY(0);
+    height: auto;
+  }
+
+  .spinner {
+    position: absolute;
+    right: 10px; /* Adjust spinner position from the right */
+    top: 50%;
+    transform: translateY(-50%); /* Vertically center the spinner */
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    height: 0;
+    overflow: hidden;
+  }
+
+  .spinner.visible {
+    opacity: 1;
+    transform: translateY(-50%); /* Maintain vertical centering when spinner is visible */
     height: auto;
   }
 }

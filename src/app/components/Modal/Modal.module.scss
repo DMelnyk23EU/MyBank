@@ -1,0 +1,47 @@
+/* Modal.module.scss */
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Dark background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure modal is on top */
+}
+
+.modalContent {
+  background-color: white;
+  padding: 2rem;
+  max-width: 600px;
+  width: 90%;
+  border-radius: 8px;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-y: auto;
+  max-height: 90%;
+
+  /* Make the modal content responsive */
+  @media (max-width: 600px) {
+    width: 95%;
+    padding: 1rem;
+  }
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #333;
+  cursor: pointer;
+}
+
+.closeButton:hover {
+  color: red;
+}
+

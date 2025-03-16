@@ -3,14 +3,12 @@
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  height: 8em;
+  height: 10em;
 
-  /* Hide File Input */
   .inputField {
     display: none;
   }
 
-  /* Clickable Image Wrapper */
   .imageWrapper {
     display: flex;
     align-items: center;
@@ -29,14 +27,12 @@
       border: 2px solid;
     }
 
-    /* Preview Image */
     .preview {
       width: 100%;
       height: 100%;
       object-fit: cover;
       opacity: 1;
       transition: opacity 0.3s ease;
-
     }
 
     .editLogo {
@@ -51,7 +47,6 @@
       border-radius: 10px;
     }
 
-    /* Placeholder for No Image */
     .placeholder {
       display: flex;
       flex-direction: column;
@@ -68,6 +63,22 @@
         text-align: center;
       }
     }
+
+    .spinnerWrapper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      background-color: rgb(247 247 247 / 80%);
+    }
+  }
+
+  .notClickable {
+    cursor: default;
   }
 
   .solidBorder {
@@ -75,17 +86,29 @@
     border: 2px solid;
   }
 
-  .removeButton {
-    background-color: transparent;
-    color: black;
-    padding: 5px 10px;
+  /* Remove Button as an Icon in the Top-Right Corner */
+  .removeIcon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    font-weight: bold;
     cursor: pointer;
-    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+    padding: 0 0 2px 1px;
 
     &:hover {
-      color: #cc0000;
+      background: rgba(0, 0, 0, 0.8);
+      transform: scale(1.1);
     }
   }
 }

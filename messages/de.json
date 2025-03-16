@@ -22,16 +22,21 @@
     "passwordInvalid": "Das Passwort muss mindestens 8 Zeichen lang sein",
     "logginInMessage": "Anmeldung läuft...",
     "loginError": "Ungültige E-Mail oder Passwort",
-    "loginSuccess": "Erfolgreich angemeldet"
+    "loginSuccess": "Erfolgreich angemeldet",
+    "update": "Aktualisieren",
+    "delete": "Löschen"
+  },
+  "register": {
+    "registerSuccess": "Erfolgreich registriert",
+    "registerError": "Fehler bei der Registrierung"
   },
   "topNav": {
     "home": "Startseite",
-    "about": "Über uns",
-    "services": "Dienstleistungen",
-    "contact": "Kontakt",
+    "transactions": "Transaktionen",
     "login": "Anmelden",
     "logout": "Abmelden",
-    "profile": "Mein Profil"
+    "profile": "Mein Profil",
+    "profileEdit": "Profil bearbeiten"
   },
   "validations": {
     "required": "Dieses Feld ist erforderlich",
@@ -42,6 +47,30 @@
   "fields": {
     "imgInputLabel": "Zum Hochladen klicken",
     "currencySelectLabel": "Währung auswählen"
+  },
+  "transactions": {
+    "title": "Transaktionen",
+    "noTransactions": "Keine Transaktionen gefunden",
+    "transactionType": "Transaktionstyp",
+    "date": "Datum",
+    "transactionFailed": "Transaktion fehlgeschlagen",
+    "transactionSuccess": "Transaktion erfolgreich",
+    "newTransaction": "Neue Transaktion",
+    "recipientName": "Empfängername",
+    "recipientNamePlaceholder": "Geben Sie den Namen des Empfängers ein",
+    "amount": "Betrag",
+    "amountPlaceholder": "Geben Sie den Betrag ein",
+    "description": "Beschreibung",
+    "descriptionPlaceholder": "Geben Sie eine Beschreibung ein",
+    "convert": "Die Transaktion wird in die Währung des Empfängers umgerechnet:",
+    "notEnoughBalance": "Nicht genügend Guthaben für diese Transaktion",
+    "searching": "Suche nach Empfänger...",
+    "recipientNotFound": "Empfänger nicht gefunden",
+    "received": "Erhalten",
+    "sent": "Gesendet",
+    "send": "Senden",
+    "balance": "Kontostand",
+    "loading": "Wird geladen..."
   },
   "common": {
     "ok": "OK",
